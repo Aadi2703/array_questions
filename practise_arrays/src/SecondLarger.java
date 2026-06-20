@@ -26,10 +26,15 @@ public class SecondLarger {
             if (arr[i] > max1) {
                 max2 = max1;
                 max1 = arr[i];
-            }else{
+            }else if (arr[i] < max1 && arr[i] > max2) {
+                max2 = arr[i]; // Update second largest only if it's actually bigger
+            }
+            // Handle the case where max1 and max2 started off equal (e.g., 8 and 8)
+            else if (max1 == max2 && arr[i] < max1) {
                 max2 = arr[i];
             }
         }
+
 
 
         System.out.println("\nfirst largest elemant is : " + max1);
